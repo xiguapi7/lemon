@@ -9,6 +9,8 @@
 # BlueJ files
 *.ctxt
 
+.idea/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -259,3 +261,10 @@ nbdist/
 .nb-gradle/
 
 *.iml
+.idea/.gitignore
+.idea/codeStyles/
+.idea/encodings.xml
+.idea/inspectionProfiles/
+.idea/intellij-javadocs-4.0.1.xml
+.idea/misc.xml
+.idea/modules.xml
