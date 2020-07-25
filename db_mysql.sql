@@ -2,9 +2,11 @@
 -- 系统版本: v0.1.0
 -- 数据库版本: MySQL 8.0
 
+SET FOREIGN_KEY_CHECKS = 0;
 
 -- 用户关系表
 -- 用户表包含用户信息，主要有编号、用户名、昵称、密码、手机号、邮箱等字段，其中用dept_id与机构表关联，表明所属机构
+DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user`
 (
     `id`               bigint(20)  NOT NULL AUTO_INCREMENT COMMENT '编号',
@@ -31,6 +33,7 @@ CREATE TABLE `sys_user`
 
 -- 角色表
 -- 角色表代表用户角色，用户拥有角色，角色拥有菜单，菜单拥有权限标识，所以不同角色拥有不同的权限，角色表主要有编号、角色名、备注等字段
+DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role`
 (
     `id`               bigint(20)   NOT NULL AUTO_INCREMENT COMMENT '编号',
@@ -48,7 +51,8 @@ CREATE TABLE `sys_role`
 
 
 -- 机构表
--- 机构代表一种组织结构，可以有自己狗，用户归属于机构。机构表主要有编号、机构名称、上级机构等字段。
+-- 机构代表一种组织结构，可以有自己的机构，用户归属于机构。机构表主要有编号、机构名称、上级机构等字段。
+DROP TABLE IF EXISTS `sys_dept`;
 CREATE TABLE `sys_dept`
 (
     `id`               bigint(20)  NOT NULL AUTO_INCREMENT COMMENT '编号',
@@ -68,6 +72,7 @@ CREATE TABLE `sys_dept`
 
 -- 菜单表
 -- 菜单分为菜单目录、菜单和操作按钮3种类型，可以进行权限控制，菜单表主要有编号、菜单名称、父菜单、菜单类型、菜单图标、菜单URL、菜单权限等字段。
+DROP TABLE IF EXISTS `sys_menu`;
 CREATE TABLE `sys_menu`
 (
     `id`               bigint(20)  NOT NULL AUTO_INCREMENT COMMENT '编号',
@@ -93,6 +98,7 @@ CREATE TABLE `sys_menu`
 
 -- 用户角色表
 -- 用户角色表是用户和角色中间表，通过用户ID和角色ID分别和用户表、角色表关联。
+DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role`
 (
     `id`               bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
@@ -110,6 +116,7 @@ CREATE TABLE `sys_user_role`
 
 -- 角色菜单表
 -- 角色菜单表是角色和菜单的中间表，通过角色ID和菜单ID分别和角色表、菜单表关联。
+DROP TABLE IF EXISTS `sys_role_menu`;
 CREATE TABLE `sys_role_menu`
 (
     `id`               bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
@@ -127,6 +134,7 @@ CREATE TABLE `sys_role_menu`
 
 -- 角色机构表
 -- 角色机构表是角色和机构的中间表，通过角色ID和机构ID分别和角色表、机构表关联。
+DROP TABLE IF EXISTS `sys_role_dept`;
 CREATE TABLE `sys_role_dept`
 (
     `id`               bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
@@ -144,6 +152,7 @@ CREATE TABLE `sys_role_dept`
 
 -- 字典表
 -- 字典表主要存储系统常用的枚举型数据，主要包含编号、标签、数据值、类型等字段。
+DROP TABLE IF EXISTS `sys_dict`;
 CREATE TABLE `sys_dict`
 (
     `id`               bigint(20)     NOT NULL AUTO_INCREMENT COMMENT '编号',
@@ -166,6 +175,7 @@ CREATE TABLE `sys_dict`
 
 -- 配置表
 -- 配置表主要存储系统配置信息，主要包含编号、标签、数据值、类型等字段。
+DROP TABLE IF EXISTS `sys_config`;
 CREATE TABLE `sys_config`
 (
     `id`               bigint(20)     NOT NULL AUTO_INCREMENT COMMENT '编号',
@@ -188,6 +198,7 @@ CREATE TABLE `sys_config`
 
 -- 操作日志表
 -- 操作日志表主要记录系统用户的日常操作信息，主要包含编号、用户名、用户操作、请求方法、请求参数、执行时长、IP地址等。
+DROP TABLE IF EXISTS `sys_log`;
 CREATE TABLE `sys_log`
 (
     `id`               bigint(20)    NOT NULL AUTO_INCREMENT COMMENT '编号',
@@ -209,6 +220,7 @@ CREATE TABLE `sys_log`
 
 -- 登录日志表
 -- 登录日志表主要记录用户登录和退出状态，主要包含编号、用户名、登录状态、IP地址等字段，可以根据status状态统计在线用户信息。
+DROP TABLE IF EXISTS `sys_login_log`;
 CREATE TABLE `sys_login_log`
 (
     `id`               bigint(20)  NOT NULL AUTO_INCREMENT COMMENT '编号',

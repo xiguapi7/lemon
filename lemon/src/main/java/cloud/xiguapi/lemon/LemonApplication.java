@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author adanz
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"cloud.xiguapi.lemon"})
 public class LemonApplication {
 
 	public static void main(String[] args) {
