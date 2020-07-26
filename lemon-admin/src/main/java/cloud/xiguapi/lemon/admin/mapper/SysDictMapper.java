@@ -24,15 +24,21 @@ public interface SysDictMapper {
 
 	int insertSelective(SysDict record);
 
-	List<SysDict> selectByExample(SysDictExample example);
+	List<SysDict> selectByExample(SysDictExample example, @Param("listItem") String listItem);
 
 	SysDict selectByPrimaryKey(Long id);
 
-	int updateByExampleSelective(@Param("record") SysDict record, @Param("example") SysDictExample example);
+	int updateByExampleSelective(@Param("record") SysDict record, @Param("example") SysDictExample example, @Param("listItem") String listItem);
 
 	int updateByExample(@Param("record") SysDict record, @Param("example") SysDictExample example);
 
 	int updateByPrimaryKeySelective(SysDict record);
 
 	int updateByPrimaryKey(SysDict record);
+
+	List<SysDict> findPage();
+
+	List<SysDict> findByLabel(@Param("label") String label);
+
+	List<SysDict> findPageByLabel(@Param("label") String label);
 }

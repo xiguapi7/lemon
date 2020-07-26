@@ -12,38 +12,27 @@
     <artifactId>lemon-core</artifactId>
     <version>0.1.0</version>
     <name>lemon-core</name>
-    <description>Lemon</description>
+    <description>Lemon核心代码封装</description>
 
     <properties>
         <java.version>11</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <pagehelper.spring.version>1.2.5</pagehelper.spring.version>
     </properties>
 
     <dependencies>
+        <!-- pagehelper -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>${pagehelper.spring.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>cloud.xiguapi</groupId>
+            <artifactId>lemon-common</artifactId>
+            <version>0.1.0</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

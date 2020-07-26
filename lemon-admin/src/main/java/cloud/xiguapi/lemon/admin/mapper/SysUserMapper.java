@@ -24,11 +24,11 @@ public interface SysUserMapper {
 
 	int insertSelective(SysUser record);
 
-	List<SysUser> selectByExample(SysUserExample example);
+	List<SysUser> selectByExample(SysUserExample example, @Param("listItem") String listItem);
 
 	SysUser selectByPrimaryKey(Long id);
 
-	int updateByExampleSelective(@Param("record") SysUser record, @Param("example") SysUserExample example);
+	int updateByExampleSelective(@Param("record") SysUser record, @Param("example") SysUserExample example, @Param("listItem") String listItem);
 
 	int updateByExample(@Param("record") SysUser record, @Param("example") SysUserExample example);
 
@@ -37,4 +37,6 @@ public interface SysUserMapper {
 	int updateByPrimaryKey(SysUser record);
 
 	List<SysUser> findAll();
+
+	List<SysUser> findPage();
 }

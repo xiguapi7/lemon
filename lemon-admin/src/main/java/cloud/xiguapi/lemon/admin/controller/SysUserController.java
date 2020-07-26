@@ -2,10 +2,10 @@ package cloud.xiguapi.lemon.admin.controller;
 
 import cloud.xiguapi.lemon.admin.model.SysUser;
 import cloud.xiguapi.lemon.admin.service.SysUserService;
+import cloud.xiguapi.lemon.core.http.HttpResult;
+import cloud.xiguapi.lemon.core.page.PageRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +30,10 @@ public class SysUserController {
 	@GetMapping("/findAll")
 	public List<SysUser> findAll() {
 		return service.findAll();
+	}
+
+	@PostMapping("/findPage")
+	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
+		return HttpResult.ok(service.findPage(pageRequest));
 	}
 }
