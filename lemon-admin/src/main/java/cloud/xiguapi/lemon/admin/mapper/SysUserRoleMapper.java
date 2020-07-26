@@ -24,15 +24,17 @@ public interface SysUserRoleMapper {
 
 	int insertSelective(SysUserRole record);
 
-	List<SysUserRole> selectByExample(SysUserRoleExample example);
+	List<SysUserRole> selectByExample(SysUserRoleExample example, @Param("listItem") String listItem);
 
 	SysUserRole selectByPrimaryKey(Long id);
 
-	int updateByExampleSelective(@Param("record") SysUserRole record, @Param("example") SysUserRoleExample example);
+	int updateByExampleSelective(@Param("record") SysUserRole record, @Param("example") SysUserRoleExample example, @Param("listItem") String listItem);
 
 	int updateByExample(@Param("record") SysUserRole record, @Param("example") SysUserRoleExample example);
 
 	int updateByPrimaryKeySelective(SysUserRole record);
 
 	int updateByPrimaryKey(SysUserRole record);
+
+	List<SysUserRole> findUserRoles(Long userId);
 }

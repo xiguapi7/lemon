@@ -39,4 +39,8 @@ public interface SysUserMapper {
 	List<SysUser> findAll();
 
 	List<SysUser> findPage();
+
+	void deleteByUserId(Long id);
+
+	SysUser findByName(String name);
 }

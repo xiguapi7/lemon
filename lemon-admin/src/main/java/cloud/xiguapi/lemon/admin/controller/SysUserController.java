@@ -2,11 +2,14 @@ package cloud.xiguapi.lemon.admin.controller;
 
 import cloud.xiguapi.lemon.admin.model.SysUser;
 import cloud.xiguapi.lemon.admin.service.SysUserService;
+import cloud.xiguapi.lemon.common.tool.FileUtils;
 import cloud.xiguapi.lemon.core.http.HttpResult;
 import cloud.xiguapi.lemon.core.page.PageRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -35,5 +38,11 @@ public class SysUserController {
 	@PostMapping("/findPage")
 	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
 		return HttpResult.ok(service.findPage(pageRequest));
+	}
+
+	@PostMapping("/exportExcelUser")
+	public void exportExportExcelUser(@RequestBody PageRequest request, HttpServletResponse resp) {
+		File file = service.createUserExcelFile(request);
+		FileUtils.downloadFile(resp, file, file.getName());
 	}
 }
