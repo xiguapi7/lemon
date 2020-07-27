@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
+ * 字典服务控制器
+ *
  * @author 大大大西西瓜皮🍉
  * @date 19:05 2020-07-26
  * description:

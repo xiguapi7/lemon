@@ -88,7 +88,7 @@ public class SysUserServiceImpl implements SysUserService {
 				sysUserRole.setUserId(id);
 			}
 		} else {
-			mapper.deleteByUserId(record.getId());
+			mapper.deleteByPrimaryKey(record.getId());
 		}
 		for (SysUserRole sysUserRole : record.getUserRoles()) {
 			userRoleMapper.insertSelective(sysUserRole);

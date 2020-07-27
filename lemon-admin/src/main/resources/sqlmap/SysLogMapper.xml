@@ -1,122 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cloud.xiguapi.lemon.admin.mapper.SysLogMapper">
-  <resultMap id="BaseResultMap" type="cloud.xiguapi.lemon.admin.model.SysLog">
-    <!--@mbg.generated-->
-    <!--@Table sys_log-->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="operation" jdbcType="VARCHAR" property="operation" />
-    <result column="method" jdbcType="VARCHAR" property="method" />
-    <result column="params" jdbcType="VARCHAR" property="params" />
-    <result column="time" jdbcType="BIGINT" property="time" />
-    <result column="ip" jdbcType="VARCHAR" property="ip" />
-    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="last_update_by" jdbcType="VARCHAR" property="lastUpdateBy" />
-    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <!--@mbg.generated-->
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+    <resultMap id="BaseResultMap" type="cloud.xiguapi.lemon.admin.model.SysLog">
+        <!--@mbg.generated-->
+        <!--@Table sys_log-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="operation" jdbcType="VARCHAR" property="operation"/>
+        <result column="method" jdbcType="VARCHAR" property="method"/>
+        <result column="params" jdbcType="VARCHAR" property="params"/>
+        <result column="time" jdbcType="BIGINT" property="time"/>
+        <result column="ip" jdbcType="VARCHAR" property="ip"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="last_update_by" jdbcType="VARCHAR" property="lastUpdateBy"/>
+        <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <!--@mbg.generated-->
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <!--@mbg.generated-->
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <!--@mbg.generated-->
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    id, user_name, `operation`, `method`, params, `time`, ip, create_by, create_time, 
-    last_update_by, last_update_time
-  </sql>
-  <select id="selectByExample" parameterType="cloud.xiguapi.lemon.admin.model.SysLogExample" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, user_name, `operation`, `method`, params, `time`, ip, create_by, create_time,
+        last_update_by, last_update_time
+    </sql>
+    <select id="selectByExample" parameterType="cloud.xiguapi.lemon.admin.model.SysLogExample"
+            resultMap="BaseResultMap">
+        <!--@mbg.generated-->
     select
-    <if test="distinct">
+
+        <if test="distinct">
+
       distinct
-    </if>
-    <include refid="Base_Column_List" />
+
+        </if>
+        <include refid="Base_Column_List"/>
+
     from sys_log
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
+
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+
       order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
+
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
     select 
-    <include refid="Base_Column_List" />
+
+        <include refid="Base_Column_List"/>
+
     from sys_log
     where id = #{id,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    <!--@mbg.generated-->
+
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
     delete from sys_log
     where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <delete id="deleteByExample" parameterType="cloud.xiguapi.lemon.admin.model.SysLogExample">
-    <!--@mbg.generated-->
+
+    </delete>
+    <delete id="deleteByExample" parameterType="cloud.xiguapi.lemon.admin.model.SysLogExample">
+        <!--@mbg.generated-->
     delete from sys_log
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cloud.xiguapi.lemon.admin.model.SysLog" useGeneratedKeys="true">
-    <!--@mbg.generated-->
+
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cloud.xiguapi.lemon.admin.model.SysLog"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
     insert into sys_log (user_name, `operation`, `method`, 
       params, `time`, ip, create_by, 
       create_time, last_update_by, last_update_time
@@ -125,126 +141,188 @@
       #{params,jdbcType=VARCHAR}, #{time,jdbcType=BIGINT}, #{ip,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{lastUpdateBy,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=TIMESTAMP}
       )
-  </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cloud.xiguapi.lemon.admin.model.SysLog" useGeneratedKeys="true">
-    <!--@mbg.generated-->
+
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cloud.xiguapi.lemon.admin.model.SysLog"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
     insert into sys_log
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="userName != null">
-        user_name,
-      </if>
-      <if test="operation != null">
+
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userName != null">
+                user_name,
+
+            </if>
+            <if test="operation != null">
+
         `operation`,
-      </if>
-      <if test="method != null">
+
+            </if>
+            <if test="method != null">
+
         `method`,
-      </if>
-      <if test="params != null">
+
+            </if>
+            <if test="params != null">
+
         params,
-      </if>
-      <if test="time != null">
+
+            </if>
+            <if test="time != null">
+
         `time`,
-      </if>
-      <if test="ip != null">
+
+            </if>
+            <if test="ip != null">
+
         ip,
-      </if>
-      <if test="createBy != null">
+
+            </if>
+            <if test="createBy != null">
+
         create_by,
-      </if>
-      <if test="createTime != null">
+
+            </if>
+            <if test="createTime != null">
+
         create_time,
-      </if>
-      <if test="lastUpdateBy != null">
+
+            </if>
+            <if test="lastUpdateBy != null">
+
         last_update_by,
-      </if>
-      <if test="lastUpdateTime != null">
+
+            </if>
+            <if test="lastUpdateTime != null">
+
         last_update_time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="userName != null">
-        #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="operation != null">
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+
+            </if>
+            <if test="operation != null">
+
         #{operation,jdbcType=VARCHAR},
-      </if>
-      <if test="method != null">
+
+            </if>
+            <if test="method != null">
+
         #{method,jdbcType=VARCHAR},
-      </if>
-      <if test="params != null">
+
+            </if>
+            <if test="params != null">
+
         #{params,jdbcType=VARCHAR},
-      </if>
-      <if test="time != null">
+
+            </if>
+            <if test="time != null">
+
         #{time,jdbcType=BIGINT},
-      </if>
-      <if test="ip != null">
+
+            </if>
+            <if test="ip != null">
+
         #{ip,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
+
+            </if>
+            <if test="createBy != null">
+
         #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
+
+            </if>
+            <if test="createTime != null">
+
         #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="lastUpdateBy != null">
+
+            </if>
+            <if test="lastUpdateBy != null">
+
         #{lastUpdateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="lastUpdateTime != null">
+
+            </if>
+            <if test="lastUpdateTime != null">
+
         #{lastUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="cloud.xiguapi.lemon.admin.model.SysLogExample" resultType="java.lang.Long">
-    <!--@mbg.generated-->
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="cloud.xiguapi.lemon.admin.model.SysLogExample"
+            resultType="java.lang.Long">
+        <!--@mbg.generated-->
     select count(*) from sys_log
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    <!--@mbg.generated-->
+
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        <!--@mbg.generated-->
     update sys_log
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=BIGINT},
-      </if>
-      <if test="record.userName != null">
+
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=BIGINT},
+
+            </if>
+            <if test="record.userName != null">
+
         user_name = #{record.userName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.operation != null">
+
+            </if>
+            <if test="record.operation != null">
+
         `operation` = #{record.operation,jdbcType=VARCHAR},
-      </if>
-      <if test="record.method != null">
+
+            </if>
+            <if test="record.method != null">
+
         `method` = #{record.method,jdbcType=VARCHAR},
-      </if>
-      <if test="record.params != null">
+
+            </if>
+            <if test="record.params != null">
+
         params = #{record.params,jdbcType=VARCHAR},
-      </if>
-      <if test="record.time != null">
+
+            </if>
+            <if test="record.time != null">
+
         `time` = #{record.time,jdbcType=BIGINT},
-      </if>
-      <if test="record.ip != null">
+
+            </if>
+            <if test="record.ip != null">
+
         ip = #{record.ip,jdbcType=VARCHAR},
-      </if>
-      <if test="record.createBy != null">
+
+            </if>
+            <if test="record.createBy != null">
+
         create_by = #{record.createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="record.createTime != null">
+
+            </if>
+            <if test="record.createTime != null">
+
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.lastUpdateBy != null">
+
+            </if>
+            <if test="record.lastUpdateBy != null">
+
         last_update_by = #{record.lastUpdateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="record.lastUpdateTime != null">
+
+            </if>
+            <if test="record.lastUpdateTime != null">
+
         last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    <!--@mbg.generated-->
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        <!--@mbg.generated-->
     update sys_log
     set id = #{record.id,jdbcType=BIGINT},
       user_name = #{record.userName,jdbcType=VARCHAR},
@@ -257,49 +335,71 @@
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       last_update_by = #{record.lastUpdateBy,jdbcType=VARCHAR},
       last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="cloud.xiguapi.lemon.admin.model.SysLog">
-    <!--@mbg.generated-->
+
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="cloud.xiguapi.lemon.admin.model.SysLog">
+        <!--@mbg.generated-->
     update sys_log
-    <set>
-      <if test="userName != null">
-        user_name = #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="operation != null">
+
+        <set>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+
+            </if>
+            <if test="operation != null">
+
         `operation` = #{operation,jdbcType=VARCHAR},
-      </if>
-      <if test="method != null">
+
+            </if>
+            <if test="method != null">
+
         `method` = #{method,jdbcType=VARCHAR},
-      </if>
-      <if test="params != null">
+
+            </if>
+            <if test="params != null">
+
         params = #{params,jdbcType=VARCHAR},
-      </if>
-      <if test="time != null">
+
+            </if>
+            <if test="time != null">
+
         `time` = #{time,jdbcType=BIGINT},
-      </if>
-      <if test="ip != null">
+
+            </if>
+            <if test="ip != null">
+
         ip = #{ip,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
+
+            </if>
+            <if test="createBy != null">
+
         create_by = #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
+
+            </if>
+            <if test="createTime != null">
+
         create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="lastUpdateBy != null">
+
+            </if>
+            <if test="lastUpdateBy != null">
+
         last_update_by = #{lastUpdateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="lastUpdateTime != null">
+
+            </if>
+            <if test="lastUpdateTime != null">
+
         last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
+            </if>
+        </set>
+
     where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="cloud.xiguapi.lemon.admin.model.SysLog">
-    <!--@mbg.generated-->
+
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cloud.xiguapi.lemon.admin.model.SysLog">
+        <!--@mbg.generated-->
     update sys_log
     set user_name = #{userName,jdbcType=VARCHAR},
       `operation` = #{operation,jdbcType=VARCHAR},
@@ -312,5 +412,26 @@
       last_update_by = #{lastUpdateBy,jdbcType=VARCHAR},
       last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
-  </update>
+
+    </update>
+    <select id="findPage" resultMap="BaseResultMap">
+
+    select
+
+        <include refid="Base_Column_List"/>
+
+    from sys_log
+
+    </select>
+    <select id="findPageByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <bind name="pattern" value="'%' + _parameter.userName + '%'"/>
+
+    select
+
+        <include refid="Base_Column_List"/>
+
+    from sys_log
+    where user_name like #{pattern}
+
+    </select>
 </mapper>

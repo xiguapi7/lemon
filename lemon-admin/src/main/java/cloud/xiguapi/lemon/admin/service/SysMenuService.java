@@ -12,7 +12,7 @@ import java.util.List;
  * date 00:16 2020-07-27
  * description:
  */
-public interface SysMenuService extends CrudService<SysMenuService> {
+public interface SysMenuService extends CrudService<SysMenu> {
 
 
 	/**
@@ -22,4 +22,12 @@ public interface SysMenuService extends CrudService<SysMenuService> {
 	 * @return 菜单列表
 	 */
 	List<SysMenu> findByUser(String name);
+
+	/**
+	 * 查询菜单树, 用户ID和用户名为空时就查询全部
+	 *
+	 * @param name 用户名
+	 * @return 查询结果列表
+	 */
+	List<SysMenu> findTree(String name, int menuType);
 }

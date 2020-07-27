@@ -35,4 +35,11 @@ public interface SysConfigMapper {
 	int updateByPrimaryKeySelective(SysConfig record);
 
 	int updateByPrimaryKey(SysConfig record);
+
+	List<SysConfig> findPage();
+
+	List<SysConfig> findPageByLabel(@Param(value = "label") String label);
+
+	List<SysConfig> findByLable(@Param(value = "label") String label);
+
 }

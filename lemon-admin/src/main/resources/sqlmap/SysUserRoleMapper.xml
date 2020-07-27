@@ -85,11 +85,17 @@
 
 
 
+
+
         <if test="distinct">
 
 
 
+
+
       distinct
+
+
 
 
 
@@ -98,7 +104,11 @@
 
 
 
+
+
     from sys_user_role
+
+
 
 
 
@@ -109,7 +119,11 @@
 
 
 
+
+
       order by ${orderByClause}
+
+
 
 
 
@@ -121,12 +135,18 @@
 
 
 
+
+
         <include refid="Base_Column_List"/>
+
+
 
 
 
     from sys_user_role
     where id = #{id,jdbcType=BIGINT}
+
+
 
 
 
@@ -138,10 +158,14 @@
 
 
 
+
+
     </delete>
     <delete id="deleteByExample" parameterType="cloud.xiguapi.lemon.admin.model.SysUserRoleExample">
         <!--@mbg.generated-->
     delete from sys_user_role
+
+
 
 
 
@@ -161,11 +185,15 @@
 
 
 
+
+
     </insert>
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
             parameterType="cloud.xiguapi.lemon.admin.model.SysUserRole" useGeneratedKeys="true">
         <!--@mbg.generated-->
     insert into sys_user_role
+
+
 
 
 
@@ -175,12 +203,18 @@
 
 
 
+
+
             </if>
             <if test="roleId != null">
 
 
 
+
+
         role_id,
+
+
 
 
 
@@ -189,7 +223,11 @@
 
 
 
+
+
         create_by,
+
+
 
 
 
@@ -198,7 +236,11 @@
 
 
 
+
+
         create_time,
+
+
 
 
 
@@ -207,12 +249,18 @@
 
 
 
+
+
         last_update_by,
+
+
 
 
 
             </if>
             <if test="lastUpdateTime != null">
+
+
 
 
 
@@ -225,12 +273,18 @@
 
 
 
+
+
             </if>
             <if test="roleId != null">
 
 
 
+
+
         #{roleId,jdbcType=BIGINT},
+
+
 
 
 
@@ -239,7 +293,11 @@
 
 
 
+
+
         #{createBy,jdbcType=VARCHAR},
+
+
 
 
 
@@ -248,7 +306,11 @@
 
 
 
+
+
         #{createTime,jdbcType=TIMESTAMP},
+
+
 
 
 
@@ -257,12 +319,18 @@
 
 
 
+
+
         #{lastUpdateBy,jdbcType=VARCHAR},
+
+
 
 
 
             </if>
             <if test="lastUpdateTime != null">
+
+
 
 
 
@@ -277,6 +345,8 @@
 
 
 
+
+
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
@@ -287,9 +357,13 @@
 
 
 
+
+
         <set>
             <if test="record.id != null">
                 id = #{record.id,jdbcType=BIGINT},
+
+
 
 
 
@@ -298,7 +372,11 @@
 
 
 
+
+
         user_id = #{record.userId,jdbcType=BIGINT},
+
+
 
 
 
@@ -307,7 +385,11 @@
 
 
 
+
+
         role_id = #{record.roleId,jdbcType=BIGINT},
+
+
 
 
 
@@ -316,7 +398,11 @@
 
 
 
+
+
         create_by = #{record.createBy,jdbcType=VARCHAR},
+
+
 
 
 
@@ -325,7 +411,11 @@
 
 
 
+
+
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
+
+
 
 
 
@@ -334,12 +424,18 @@
 
 
 
+
+
         last_update_by = #{record.lastUpdateBy,jdbcType=VARCHAR},
+
+
 
 
 
             </if>
             <if test="record.lastUpdateTime != null">
+
+
 
 
 
@@ -363,6 +459,8 @@
 
 
 
+
+
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause"/>
         </if>
@@ -373,9 +471,13 @@
 
 
 
+
+
         <set>
             <if test="userId != null">
                 user_id = #{userId,jdbcType=BIGINT},
+
+
 
 
 
@@ -384,7 +486,11 @@
 
 
 
+
+
         role_id = #{roleId,jdbcType=BIGINT},
+
+
 
 
 
@@ -393,7 +499,11 @@
 
 
 
+
+
         create_by = #{createBy,jdbcType=VARCHAR},
+
+
 
 
 
@@ -402,7 +512,11 @@
 
 
 
+
+
         create_time = #{createTime,jdbcType=TIMESTAMP},
+
+
 
 
 
@@ -411,12 +525,18 @@
 
 
 
+
+
         last_update_by = #{lastUpdateBy,jdbcType=VARCHAR},
+
+
 
 
 
             </if>
             <if test="lastUpdateTime != null">
+
+
 
 
 
@@ -426,7 +546,11 @@
 
 
 
+
+
     where id = #{id,jdbcType=BIGINT}
+
+
 
 
 
@@ -444,20 +568,24 @@
 
 
 
+
+
     </update>
 
     <select id="findUserRoles" parameterType="java.lang.Long" resultMap="BaseResultMap">
 
-    select
-
-
+        select
 
         <include refid="Base_Column_List"/>
-
 
         from sys_user_role
         where user_id = #{userId,jdbcType=BIGINT}
 
-
     </select>
+    <delete id="deleteByUserId" parameterType="java.lang.Long">
+
+        delete from sys_user_role
+        where user_id = #{userId,jdbcType=BIGINT}
+
+    </delete>
 </mapper>

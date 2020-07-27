@@ -36,11 +36,13 @@ public interface SysUserMapper {
 
 	int updateByPrimaryKey(SysUser record);
 
-	List<SysUser> findAll();
-
 	List<SysUser> findPage();
 
-	void deleteByUserId(Long id);
+	SysUser findByName(@Param(value = "name") String name);
 
-	SysUser findByName(String name);
+	List<SysUser> findPageByName(@Param(value = "name") String name);
+
+	List<SysUser> findPageByNameAndEmail(@Param(value = "name") String name, @Param(value = "email") String email);
+
+	List<SysUser> findAll();
 }
