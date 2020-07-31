@@ -29,9 +29,25 @@ spring:
     admin:
       client:
         url: "http://localhost:9983"
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
 # 分页配置
 pagehelper:
   helperDialect: mysql
   reasonable: true
   supportMethodsArguments: true
 params: count=countSql
+
+# 开启健康端口检查
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
