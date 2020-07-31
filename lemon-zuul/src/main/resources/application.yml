@@ -1,0 +1,19 @@
+server:
+  port: 9980
+spring:
+  application:
+    name: lemon-zuul
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+zuul:
+  routes:
+    ribbon:
+      path: /ribbon/**
+      serviceId: lemon-consumer
+    feign:
+      path: /feign/**
+      serviceId: lemon-consumer
