@@ -1,13 +1,13 @@
-package cloud.xiguapi.lemon.provider.controller;
+package cloud.xiguapi.lemon.consumer.controller;
 
-import cloud.xiguapi.lemon.provider.service.LemonProviderService;
+import cloud.xiguapi.lemon.consumer.service.LemonProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author 大大大西西瓜皮🍉
- * @date 23:17 2020-07-31
+ * @date 00:31 2020-08-01
  * description:
  */
 @RestController
@@ -25,4 +25,5 @@ public class FeignHelloController {
 		// 像调用本地服务一样
 		return service.hello();
 	}
+
 }

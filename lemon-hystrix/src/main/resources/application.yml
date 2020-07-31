@@ -1,0 +1,16 @@
+server:
+  port: 9986
+spring:
+  application:
+    name: lemon-hystrix
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+turbine:
+  instance-url-suffix: hystrix.stream
+  cluster-name-expression: "'default'"
+  app-config: lemon-consumer
+  combine-host-port: true
