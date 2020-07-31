@@ -1,0 +1,12 @@
+server:
+  port: 9982
+spring:
+  application:
+    name: lemon-backup
+lemon:
+  backup:
+    datasource:
+      host: localhost
+      username: root
+      password: 1015
+      database: lemon
