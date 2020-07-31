@@ -1,0 +1,27 @@
+server:
+  port: 9984
+spring:
+  application:
+    name: lemon-provider
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+  boot:
+    admin:
+      client:
+        url: "http://locahost:9983/"
+# 开启健康端口检查
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+service-producer:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
