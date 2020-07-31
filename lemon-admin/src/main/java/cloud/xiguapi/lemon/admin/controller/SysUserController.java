@@ -8,6 +8,7 @@ import cloud.xiguapi.lemon.common.tool.PasswordUtils;
 import cloud.xiguapi.lemon.core.http.HttpResult;
 import cloud.xiguapi.lemon.core.page.PageRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -32,6 +33,7 @@ public class SysUserController {
 		this.service = service;
 	}
 
+	@PreAuthorize("hasAuthority('sys:user:add') AND hasAuthority('sys:user:edit')")
 	@PostMapping("/save")
 	public HttpResult save(@RequestBody SysUser record) {
 		SysUser user = service.findById(record.getId());
@@ -66,6 +68,7 @@ public class SysUserController {
 		return HttpResult.ok(service.save(record));
 	}
 
+	@PreAuthorize("hasAuthority('sys:user:delete')")
 	@PostMapping(value = "/delete")
 	public HttpResult delete(@RequestBody List<SysUser> records) {
 		for (SysUser record : records) {
@@ -77,26 +80,31 @@ public class SysUserController {
 		return HttpResult.ok(service.delete(records));
 	}
 
+	@PreAuthorize("hasAuthority('sys:user:view')")
 	@GetMapping("/findAll")
 	public List<SysUser> findAll() {
 		return service.findAll();
 	}
 
+	@PreAuthorize("hasAuthority('sys:user:view')")
 	@PostMapping("/findPage")
 	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
 		return HttpResult.ok(service.findPage(pageRequest));
 	}
 
+	@PreAuthorize("hasAuthority('sys:user:view')")
 	@GetMapping(value = "/findByName")
 	public HttpResult findByName(@RequestParam String name) {
 		return HttpResult.ok(service.findByName(name));
 	}
 
+	@PreAuthorize("hasAuthority('sys:user:view')")
 	@GetMapping(value = "/findPermissions")
 	public HttpResult findPermissions(@RequestParam String name) {
 		return HttpResult.ok(service.findPermissions(name));
 	}
 
+	@PreAuthorize("hasAuthority('sys:user:view')")
 	@GetMapping(value = "/findUserRoles")
 	public HttpResult findUserRoles(@RequestParam Long userId) {
 		return HttpResult.ok(service.findUserRoles(userId));

@@ -94,6 +94,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
 
         <!--测试-->
         <dependency>
@@ -107,6 +112,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <!-- 将依赖关系标记为可选<optional>true</optional>，防止使用项目将devtools传递性地应用于其他模块 -->
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>
@@ -115,6 +126,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <fork>true</fork>
                     <excludes>
                         <exclude>
                             <groupId>org.springframework.boot</groupId>

@@ -8,6 +8,7 @@ import cloud.xiguapi.lemon.admin.service.SysRoleService;
 import cloud.xiguapi.lemon.core.http.HttpResult;
 import cloud.xiguapi.lemon.core.page.PageRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,6 +34,7 @@ public class SysRoleController {
 		this.sysRoleMapper = sysRoleMapper;
 	}
 
+	@PreAuthorize("hasAuthority('sys:role:add') AND hasAuthority('sys:role:edit')")
 	@PostMapping(value = "/save")
 	public HttpResult save(@RequestBody SysRole record) {
 		SysRole role = sysRoleService.findById(record.getId());
@@ -48,26 +50,31 @@ public class SysRoleController {
 		return HttpResult.ok(sysRoleService.save(record));
 	}
 
+	@PreAuthorize("hasAuthority('sys:role:delete')")
 	@PostMapping(value = "/delete")
 	public HttpResult delete(@RequestBody List<SysRole> records) {
 		return HttpResult.ok(sysRoleService.delete(records));
 	}
 
+	@PreAuthorize("hasAuthority('sys:role:view')")
 	@PostMapping(value = "/findPage")
 	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
 		return HttpResult.ok(sysRoleService.findPage(pageRequest));
 	}
 
+	//@PreAuthorize("hasAuthority('sys:role:view')")
 	@GetMapping(value = "/findAll")
 	public HttpResult findAll() {
 		return HttpResult.ok(sysRoleService.findAll());
 	}
 
+	@PreAuthorize("hasAuthority('sys:role:view')")
 	@GetMapping(value = "/findRoleMenus")
 	public HttpResult findRoleMenus(@RequestParam Long roleId) {
 		return HttpResult.ok(sysRoleService.findRoleMenus(roleId));
 	}
 
+	@PreAuthorize("hasAuthority('sys:role:view')")
 	@PostMapping(value = "/saveRoleMenus")
 	public HttpResult saveRoleMenus(@RequestBody List<SysRoleMenu> records) {
 		for (SysRoleMenu record : records) {
