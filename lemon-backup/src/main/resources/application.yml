@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: lemon-backup
+  boot:
+    admin:
+      client:
+        url: "http://localhost:9983"
 lemon:
   backup:
     datasource:

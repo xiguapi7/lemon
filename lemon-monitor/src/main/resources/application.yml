@@ -1,0 +1,5 @@
+server:
+  port: 9983
+spring:
+  application:
+    name: lemon-monitor

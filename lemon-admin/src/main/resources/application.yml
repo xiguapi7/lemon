@@ -1,6 +1,8 @@
 server:
   port: 9981
 spring:
+  application:
+    name: lemon-admin
   datasource:
     name: druidDataSource
     type: com.alibaba.druid.pool.DruidDataSource
@@ -23,6 +25,10 @@ spring:
       pool-prepared-statements: true
       max-open-prepared-statements: 50
       max-pool-prepared-statement-per-connection-size: 20
+  boot:
+    admin:
+      client:
+        url: "http://localhost:9983"
 # 分页配置
 pagehelper:
   helperDialect: mysql

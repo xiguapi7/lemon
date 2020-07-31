@@ -27,6 +27,7 @@
         <module>../lemon-core</module>
         <module>../lemon-admin</module>
         <module>../lemon-backup</module>
+        <module>../lemon-monitor</module>
     </modules>
 
     <dependencies>
